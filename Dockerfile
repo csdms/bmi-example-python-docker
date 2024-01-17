@@ -12,10 +12,13 @@ LABEL email="mark.piper@colorado.edu"
 ENV example_version="2.1.2"
 
 RUN apt-get update
-RUN apt-get install -y build-essential git python3-full python3-pip
+RUN apt-get install -y build-essential git python3 pipx
+
+RUN pipx ensurepath
+RUN . /root/.bashrc
 
 RUN git clone --branch v${example_version}  https://github.com/csdms/bmi-example-python /opt/bmi-example-python
 WORKDIR /opt/bmi-example-python
-RUN pip3 install .
+RUN pipx install .
 
-CMD [ "pip3", "list" ]
+CMD [ "pipx", "list" ]
