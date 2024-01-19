@@ -15,4 +15,7 @@ RUN git clone --branch v${example_version}  https://github.com/csdms/bmi-example
 WORKDIR /opt/bmi-example-python
 RUN pip install .
 
-CMD [ "pip", "list" ]
+RUN pip install git+https://github.com/eWaterCycle/grpc4bmi.git#egg=grpc4bmi
+
+ENTRYPOINT ["run-bmi-server", "--name", "heat.BmiHeat", "--path", "/opt/bmi-example-python"]
+EXPOSE 55555
