@@ -1,8 +1,8 @@
 # Build the Python BMI example from an official Python (Linux/Debian) image.
 #
 # Use:
-#   docker build --tag bmi-example-python [--label setup-1] . 2>&1 | tee build.log
-#   docker run [-it] bmi-example-python [bash]
+#   docker build --tag mdpiper/bmi-example-python[:0.1] [--label setup-1] . 2>&1 | tee build.log
+#   docker run [-it] mdpiper/bmi-example-python [bash]
 
 FROM python:3
 
