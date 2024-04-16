@@ -1,16 +1,18 @@
-# Build the Python BMI example from an official Python (Linux/Debian) image.
+# Build the Python BMI example from a Mambaforge (Linux/Ubuntu) image.
 #
 # Use:
 #   docker build --tag mdpiper/bmi-example-python[:0.1] [--label setup-1] . 2>&1 | tee build.log
 #   docker run [-it] mdpiper/bmi-example-python [bash]
 
-FROM python:3
+FROM condaforge/mambaforge
 
 LABEL author="Mark Piper"
 LABEL email="mark.piper@colorado.edu"
 
-ENV example_version="2.1.2"
+ENV prefix=/opt/bmi-example-python
+ENV version="2.1.2"
 
-RUN git clone --branch v${example_version}  https://github.com/csdms/bmi-example-python /opt/bmi-example-python
-WORKDIR /opt/bmi-example-python
+RUN git clone --branch v${version}  https://github.com/csdms/bmi-example-python ${prefix}
+WORKDIR ${prefix}
+RUN mamba install -y --file requirements.txt
 RUN pip install .
