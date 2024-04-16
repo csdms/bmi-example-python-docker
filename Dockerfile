@@ -1,9 +1,4 @@
 # Build the Python BMI example from a Mambaforge (Linux/Ubuntu) image.
-#
-# Use:
-#   docker build --tag mdpiper/bmi-example-python[:0.1] [--label setup-1] . 2>&1 | tee build.log
-#   docker run [-it] mdpiper/bmi-example-python [bash]
-
 FROM condaforge/mambaforge
 
 LABEL author="Mark Piper"
