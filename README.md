@@ -57,7 +57,7 @@ To tag, build, and push an update, run:
 docker build --tag mdpiper/bmi-example-python:tagname .
 docker push mdpiper/bmi-example-python:tagname
 ```
-where `tagname` is, e.g., `0.2`.
+where `tagname` is, e.g., `0.2` or `latest`.
 
 A user can pull this image from Docker Hub with:
 ```
