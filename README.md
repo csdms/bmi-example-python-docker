@@ -51,14 +51,11 @@ Copy/paste this URL into a browser to view and run the example notebooks.
 ## Developer notes
 
 A versioned, multiplatform image built from this repository is hosted on Docker Hub
-at [mdpiper/bmi-example-python](https://hub.docker.com/r/mdpiper/bmi-example-python).
-To tag, build, and push an update, run:
-```
-docker buildx build --platform linux/amd64,linux/arm64 -t mdpiper/bmi-example-python:<tagname> --push .
-```
-where `<tagname>` is, e.g., `0.3` or `latest`.
-
+at [csdms/bmi-example-python](https://hub.docker.com/repository/docker/csdms/bmi-example-python-docker/).
+This image is automatically built and pushed to Docker Hub
+with the [release](./.github/workflows/release.yml) CI workflow.
+The workflow is only run when the repository is tagged.
 A user can pull this image from Docker Hub with:
 ```
-docker pull mdpiper/bmi-example-python
+docker pull csdms/bmi-example-python
 ```
