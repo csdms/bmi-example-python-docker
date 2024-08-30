@@ -51,7 +51,7 @@ Copy/paste this URL into a browser to view and run the example notebooks.
 ## Developer notes
 
 A versioned, multiplatform image built from this repository is hosted on Docker Hub
-at [csdms/bmi-example-python](https://hub.docker.com/repository/docker/csdms/bmi-example-python-docker/).
+at [csdms/bmi-example-python](https://hub.docker.com/repository/docker/csdms/bmi-example-python/).
 This image is automatically built and pushed to Docker Hub
 with the [release](./.github/workflows/release.yml) CI workflow.
 The workflow is only run when the repository is tagged.
