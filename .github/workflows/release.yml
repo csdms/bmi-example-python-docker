@@ -35,4 +35,4 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${REPO}:latest,${REPO}:${{ steps.vars.outputs.version }}
+          tags: ${{ env.REPO }}:latest,${{ env.REPO }}:${{ steps.vars.outputs.version }}
