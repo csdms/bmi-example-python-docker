@@ -4,17 +4,17 @@ The [Python example](https://github.com/csdms/bmi-example-python)
 for the [Basic Model Interface](https://bmi.readthedocs.io),
 dockerized.
 
-## Build an image
+## Build the image
 
 Build this example locally with:
 ```
 docker build --tag bmi-example-python .
 ```
-The image is built on the [condaforge/mambaforge](https://hub.docker.com/r/condaforge/mambaforge) base image.
+The image is based on the [csdms/bmi](https://hub.docker.com/r/csdms/bmi) image.
 The OS is Linux/Ubuntu.
-`conda` and `mamba` are installed in `opt/conda`.
-The *base* environment is activated,
-and the Python BMI example is installed into it.
+`conda` and `mamba` are installed in `CONDA_DIR=opt/conda`,
+and the *base* environment is activated.
+The Python BMI specification and example are installed into it.
 
 ## Run a container
 
@@ -51,11 +51,16 @@ Copy/paste this URL into a browser to view and run the example notebooks.
 ## Developer notes
 
 A versioned, multiplatform image built from this repository is hosted on Docker Hub
-at [csdms/bmi-example-python](https://hub.docker.com/repository/docker/csdms/bmi-example-python/).
-This image is automatically built and pushed to Docker Hub
-with the [release](./.github/workflows/release.yml) CI workflow.
-The workflow is only run when the repository is tagged.
+at [csdms/bmi-example-python](https://hub.docker.com/r/csdms/bmi-example-python/).
+When this repository is tagged,
+an image is automatically built and pushed to Docker Hub
+by the [release](./.github/workflows/release.yml) CI workflow.
+To manually build and push an update, run:
+```
+docker buildx build --platform linux/amd64,linux/arm64 -t csdms/bmi-example-python:latest --push .
+```
 A user can pull this image from Docker Hub with:
 ```
 docker pull csdms/bmi-example-python
 ```
+optionally with the `latest` tag or with a version tag.

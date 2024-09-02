@@ -1,13 +1,18 @@
 # Build the Python BMI example from a Mambaforge (Linux/Ubuntu) image.
-FROM condaforge/mambaforge:24.3.0-0
+FROM csdms/bmi:0.1.0
 
 LABEL author="Mark Piper"
 LABEL email="mark.piper@colorado.edu"
 
-ENV prefix=/opt/bmi-example-python
+ENV base_url=https://github.com/csdms
+ENV package=bmi-example-python
 ENV version="2.1.2"
+ENV prefix=/opt/${package}
 
-RUN git clone --branch v${version}  https://github.com/csdms/bmi-example-python ${prefix}
+RUN git clone --branch v${version} ${base_url}/${package} ${prefix}
 WORKDIR ${prefix}
-RUN mamba install -y --file requirements.txt
-RUN pip install .
+RUN mamba install -y --file requirements.txt --file requirements-testing.txt 
+RUN pip install .[testing]
+RUN pytest
+
+WORKDIR /opt
