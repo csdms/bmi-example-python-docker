@@ -64,3 +64,12 @@ A user can pull this image from Docker Hub with:
 docker pull csdms/bmi-example-python
 ```
 optionally with the `latest` tag or with a version tag.
+
+## What is the Basic Model Interface?
+
+The Basic Model Interface (BMI) is a set of functions for querying, modifying, running, and coupling models.
+Learn more at https://bmi.readthedocs.io/.
+
+## Acknowledgment
+
+This work is supported by the U.S. National Science Foundation under Award No. [2103878](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2103878), *Frameworks: Collaborative Research: Integrative Cyberinfrastructure for Next-Generation Modeling Science*.
