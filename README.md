@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+>
+> Please see [csdms/bmi-examples-docker](https://github.com/csdms/bmi-examples-docker) for the latest version of the BMI Python example built with Docker.
+
 # bmi-example-python-docker
 
 The [Python example](https://github.com/csdms/bmi-example-python)
